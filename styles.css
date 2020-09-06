@@ -1,0 +1,717 @@
+html {
+    --text-color: black;
+    --background-color: white;
+    --additional-background-color: #fbfbfb;
+    --border-color: #dcdcdc;
+    --focus-color: #008dfd;
+
+    --main-color: #008dfd;
+    --mod-main-color: #c2e3ff;
+    --button-additional-color: white;
+    --button-text-color: white;
+    --button-additional-text-color: #008dfd;
+    --button-border-color: #008dfd;
+}
+
+.dark-mode {
+    --text-color: #e0e0e0;
+    --background-color: #212121;
+    --additional-background-color: #2c2c2c;
+    --border-color: #4b4b4b;
+    --focus-color: #707070;
+    --main-color: #7777773b;
+    --mod-main-color: #717171;
+
+    --button-additional-color: #212121;
+    --button-text-color: #e0e0e0;
+    --button-additional-text-color: #e0e0e0;
+    --button-border-color: #707070;
+}
+
+
+
+body {
+	margin: 0;
+	padding: 0;
+	min-width: 320px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: 12px;
+    height: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: var(--border-color);
+}
+
+
+.fixed-container {
+	max-width: 960px;
+	padding: 0 40px;
+	margin: 0px auto;
+	position: relative;
+}
+
+.disable-scroll {
+	overflow: hidden;
+}
+
+
+
+.flex-container {
+    height: inherit;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.modal-fade {
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: #000000ab;
+	z-index: 100;
+}
+
+.modal {
+    display: none;
+	margin-bottom: 6%;
+	position: relative;
+	width: 400px;
+	background-color: var(--background-color);
+	padding: 40px;
+    border-radius: 6px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.modal__close-button {
+    font-size: 28px;
+	position: absolute;
+    right: 10px;
+    top: 10px;
+	color: #8993ad;
+	cursor: pointer;
+	background-color: transparent;
+	border: 0;
+    outline: none;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.modal__close-button:hover {
+    opacity: 0.7;
+}
+
+
+
+h2 {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-weight: normal;
+    font-size: 22px;
+    margin: 0;
+    margin-bottom: 12px;
+    padding: 0;
+}
+
+ol, ul {
+    padding-left: 18px;
+    margin: 4px 0;
+}
+
+.block {
+    margin-bottom: 36px;
+}
+
+.rotate {
+    -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+}
+
+button {
+    cursor: pointer;
+    outline: none;
+}
+
+
+.site-button {
+    font-size: 18px;
+    padding: 10px;
+    background-color: var(--main-color);
+    border: 1px solid var(--button-border-color);
+    border-radius: 5px;
+    color: var(--button-text-color);
+    -webkit-transition: background-color 0.3s, color 0.3s;
+    -o-transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.site-button:hover {
+    background-color: var(--button-additional-color);
+    color: var(--button-additional-text-color);
+}
+
+.site-button-outline {
+    background-color: var(--button-additional-color);
+    border: 1px solid var(--button-border-color);
+    color: var(--button-additional-text-color);
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.site-button-outline:hover {
+    background-color: var(--main-color);
+    color: var(--button-text-color);
+}
+
+
+.site-button-outline_round {
+    border-radius: 20px;
+    height: 40px;
+    width: 40px;
+    font-size: 30px;
+    -webkit-box-shadow: 1px 1px 5px #00000040;
+            box-shadow: 1px 1px 5px #00000040;
+}
+
+
+
+.modal__about {
+    width: 600px;
+}
+
+.modal__about p {
+    margin: 5px 0;
+}
+
+
+
+.modal__change-weekends {
+    position: relative;
+    height: 420px;
+    width: 380px;
+}
+
+.calendar {
+    max-width: 300px;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.calendar__year-month {
+    font-size: 18px;
+}
+
+.arrow {
+    font-size: 20px;
+    border-radius: 20px;
+    color: var(--button-additional-text-color);
+    background-color: var(--button-additional-color);
+    border: 1px solid var(--button-border-color);
+    height: 32px;
+    width: 32px;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.arrow:hover {
+    color: var(--button-text-color);
+    background-color: var(--main-color);
+}
+
+.calendar__table {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    border-spacing: 10px;
+    border-collapse: collapse;
+}
+
+.calendar__table th, .calendar__table td {
+    padding: 6px;
+}
+
+.calendar__table tr:nth-child(1) {
+    border-bottom: 1px solid var(--main-color);
+}
+
+.calendar__day {
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.calendar__day:hover {
+    background-color: var(--mod-main-color);
+    cursor: pointer;
+}
+
+.calendar__day-active {
+    background-color: var(--main-color);
+    color: var(--button-text-color);
+}
+
+.calendar__export {
+
+}
+
+.calendar__import {
+    cursor: pointer;
+}
+
+.calendar__import-export {
+    position: absolute;
+    bottom: 20px;
+}
+
+
+.calendar__close-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+
+
+
+.week-days-start-date {
+    padding-top: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+}
+
+
+.week-days {
+    margin-top: 10px;
+}
+
+.week-days__title-button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+}
+
+.week-days h3 {
+}
+
+.week-days__toggle-list-button {
+    display: none;
+    background: transparent;
+    border: 0;
+    margin-top: 5px;
+    color: var(--main-color);
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.week-days__toggle-list-button:hover {
+    opacity: 0.6;
+}
+
+.week-days__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+}
+
+.week-days__input {
+    margin-left: 5px;
+}
+
+.week-days label {
+    font-size: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-bottom: 5px;
+    margin-right: 6px;
+    padding: 5px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.week-days input {
+    text-align: center;
+    width: 16px;
+    background: var(--additional-background-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    outline: none;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    -moz-appearance: textfield;
+}
+
+.week-days input::-webkit-inner-spin-button,
+.week-days input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.week-days label button {
+    padding-left: 0;
+    padding-right: 0;
+    width: 18px;
+    background: var(--additional-background-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.week-days label button:hover {
+    background-color: var(--mod-main-color);
+}
+
+
+.start-date {
+    margin-top: 10px;
+}
+
+.start-date input {
+    font-size: 14px;
+    padding: 5px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 100%;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    outline: none;
+    background-color: var(--additional-background-color);
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.start-date input:focus {
+    border-color: var(--focus-color);
+}
+
+
+
+.tasks {
+}
+
+.tasks__textarea {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 8px;
+    width: 100%;
+    min-height: 40px;
+    height: 120px;
+    resize: none;
+    background-color: var(--additional-background-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    outline: none;
+    -webkit-transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+    -o-transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.tasks__textarea:focus {
+    border-color: var(--focus-color);
+}
+
+.tasks__label {
+    font-size: 14px;
+    color: gray;
+}
+
+
+
+.result {
+    margin-bottom: 24px;
+}
+
+.result__empty {
+    color: gray;
+    font-size: 14px;
+}
+
+.result__container {
+    display: none;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 4px;
+    width: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    max-height: 202px;
+    overflow-y: auto;
+}
+
+.result table {
+    border-collapse: collapse;
+    padding: 5px;
+    border: 2px solid transparent;
+    font-size: 14px;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.result table td {
+    border: 1px solid var(--border-color);
+}
+
+.result table td {
+    vertical-align: text-top;
+    padding: 4px;
+}
+
+.result__number {
+    text-align: center;
+    color: gray;
+}
+
+.result__date {
+}
+
+.result__task {
+    width: 100%;
+}
+
+.copy-dates-button {
+    display: none;
+    font-size: 16px;
+    margin-top: 12px;
+    padding: 6px;
+    border-radius: 5px;
+}
+
+
+
+.change-weekends-plan-tasks {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+}
+
+.change-weekends-plan-tasks .site-button {
+    margin-bottom: 14px;
+}
+
+.change-weekends-button {
+    margin-right: 20px;
+}
+
+
+
+.notes-container {
+    position: fixed;
+    right: 0px;
+    bottom: 20px;
+    z-index: 200;
+}
+
+
+.note {
+    position: relative;
+    margin-top: 14px;
+    padding: 10px 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    opacity: 0;
+}
+
+.error {
+    background-color: red;
+}
+
+.success {
+    background-color: green;
+}
+
+.note__text {
+    display: inline-block;
+    color: white;
+}
+
+.note__close-button {
+    display: inline-block;
+    font-size: 24px;
+    border: 0;
+    background: transparent;
+    margin-left: 10px;
+    color: white;
+    padding: 0;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.note__close-button:hover {
+    opacity: 0.6;
+}
+
+
+
+.about-button {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+}
+
+.dark-mode-button {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+
+
+
+@media (max-width: 500px) {
+    .fixed-container {
+        padding: 0 14px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .site-button {
+        padding: 8px;
+    }
+
+    .modal {
+        width: 100%;
+        padding: 30px;
+    }
+
+    .modal__change-weekends {
+        height: 390px;
+    }
+
+    .week-days-start-date {
+        padding-top: 10px;
+    }
+
+    .week-days {
+        width: 100%;
+    }
+
+    .week-days__list {
+        display: none;
+    }
+
+    .week-days label {
+        width: 100%;
+    }
+
+    .week-days label button {
+        padding-left: 0;
+        padding-right: 0;
+        width: 30px;
+    }
+
+    .week-days__toggle-list-button {
+        display: inline;
+    }
+
+    .start-date {
+        width: 100%;
+    }
+
+
+    .tasks__textarea:focus {
+        height: 100px;
+    }
+
+
+    .change-weekends-plan-tasks .site-button {
+        margin-bottom: 14px;
+        width: 100%;
+        margin-right: 0;
+    }
+}

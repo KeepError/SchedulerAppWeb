@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Планировщик</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+
+        <link href="styles.css" rel="stylesheet">
+
+        <script src="scripts/jquery-3.5.1.min.js"></script>
+        <script src="scripts/main.js"></script>
+
+        <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+        <link rel="manifest" href="favicon/site.webmanifest">
+        <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="favicon/favicon.ico">
+        <meta name="msapplication-TileColor" content="#008dfd">
+        <meta name="msapplication-config" content="favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </head>
+    <body>
+        <script src="scripts/theme.js"></script>
+        <div class="modal-fade">
+            <div class="flex-container">
+                <div class="modal modal__about">
+                    <button class="modal__close-button">&#xD7;</button>
+                    <h2>Возможности</h2>
+                    <ul>
+                        <li>Выбор количества задач отдельно для каждого дня недели</li>
+                        <li>Ввод даты, начиная с которой программа спланирует задачи</li>
+                        <li>Ввод задач (каждая с новой строки)</li>
+                        <li>Изменение выходных дней (в эти дни задачи не выполняются):
+                            <ul>
+                                <li>Выбор дней по клику</li>
+                                <li>Переход на следующий/предыдущий месяц по нажатию на стрелку</li>
+                                <li>Экспорт данных в файл для импорта на другом устройстве</li>
+                                <li>Сохранение данных даже после закрытия</li>
+                            </ul>
+                        </li>
+                        <li>Удобное копирование получившихся дат</li>
+                        <li>Поддержка темной темы</li>
+                        <li>Адаптивность под мобильные устройства</li>
+                    </ul>
+                </div>
+                <div class="modal modal__change-weekends">
+                    <button class="modal__close-button">&#xD7;</button>
+                    <h2>Изменить выходные дни</h2>
+                    <div class="calendar">
+                        <button class="arrow calendar__prev-month">&lt;</button>
+                        <div class="calendar__year-month">
+                            <span class="calendar__month"></span>
+                            <span class="calendar__year"></span>
+                        </div>
+                        <button class="arrow calendar__next-month">&gt;</button>
+                        <table class="calendar__table"></table>
+                    </div>
+
+                    <div class="calendar__import-export">
+                        <label for="calendar__input-file" class="calendar__import site-button">Импорт</label>
+                        <input type="file" id="calendar__input-file" class="calendar__input-file" style="display:none">
+
+                        <button class="calendar__export site-button">Экспорт</button>
+                    </div>
+
+                    <button class="calendar__close-button site-button">Закрыть</button>
+                </div>
+            </div>
+        </div>
+        <div class="fixed-container">
+            <form>
+                <div class="week-days-start-date block">
+                    <div class="week-days">
+                        <div class="week-days__title-button">
+                            <h3>Количество задач</h3>
+                            <button class="week-days__toggle-list-button">▶</button>
+                        </div>
+                        <div class="week-days__list">
+                            <label>Пн<div class="week-days__input"><input type="number" value="0"><button class="input-minus">-</button><button class="input-plus">+</button></div></label>
+                            <label>Вт<div class="week-days__input"><input type="number" value="0"><button class="input-minus">-</button><button class="input-plus">+</button></div></label>
+                            <label>Ср<div class="week-days__input"><input type="number" value="0"><button class="input-minus">-</button><button class="input-plus">+</button></div></label>
+                            <label>Чт<div class="week-days__input"><input type="number" value="0"><button class="input-minus">-</button><button class="input-plus">+</button></div></label>
+                            <label>Пт<div class="week-days__input"><input type="number" value="0"><button class="input-minus">-</button><button class="input-plus">+</button></div></label>
+                            <label>Сб<div class="week-days__input"><input type="number" value="0"><button class="input-minus">-</button><button class="input-plus">+</button></div></label>
+                            <label>Вс<div class="week-days__input"><input type="number" value="0"><button class="input-minus">-</button><button class="input-plus">+</button></div></label>
+                        </div>
+                    </div>
+                    <div class="start-date">
+                        <h3>Начальная дата</h3>
+                        <input type="date" name="start-date">
+                    </div>
+                </div>
+                <div class="tasks block">
+                    <h3>Список задач</h3>
+                    <textarea name="tasks" class="tasks__textarea"></textarea>
+                    <label class="tasks__label">Каждая задача с новой строки</label>
+                </div>
+                <div class="result block">
+                    <h3>Результат</h3>
+                    <span class="result__empty">Пусто...</span>
+                    <div class="result__container">
+                        <table></table>
+                    </div>
+                    <button type="button" class="copy-dates-button site-button-outline">Скопировать даты</button>
+                </div>
+                <div class="change-weekends-plan-tasks">
+                    <button type="button" class="change-weekends-button open-modal site-button">Изменить выходные дни</button>
+                    <button type="submit" class="plan-tasks-button site-button">Спланировать задачи</button>
+                </div>
+            </form>
+        </div>
+        <div class="notes-container"></div>
+        <button class="about-button open-modal site-button-outline site-button-outline_round">?</button>
+        <button class="dark-mode-button site-button-outline site-button-outline_round">☼</button>
+    </body>
+</html>
